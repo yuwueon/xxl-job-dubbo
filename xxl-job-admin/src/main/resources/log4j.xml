@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="null" debug="null">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p %c{2} %m%n"/>
+		</layout>
+	</appender>
+	
+    <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${user.home}/logs/xxl-job-admin.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p %c{2} %m%n"/>
+        </layout>
+    </appender>
+    
+    <logger name="org.apache.zookeeper">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.I0Itec.zkclient">
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.apache.commons.httpclient">
+		<level value="ERROR" />
+	</logger>
+	
+	<logger name="com.alibaba.dubbo">
+		<level value="ERROR" />
+	</logger>
+
+
+    
+
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</log4j:configuration>
